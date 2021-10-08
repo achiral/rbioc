@@ -1,11 +1,11 @@
 # Docker base image
-FROM rocker/tidyverse:4.1.1
-# FROM bioconductor/bioconductor_docker:RELEASE_3_13
+# FROM achiral/bioc:latest
+FROM bioconductor/bioconductor_docker
 
 # information
-LABEL version="yyyymmdd.vv"
-LABEL description="Docker RStudio"
-LABEL maintainer="xxxxxxxx@xxxxx.xxx"
+LABEL version="2021.10"
+LABEL description="Docker RStudio bioconductor"
+LABEL maintainer="https://hub.docker.com/u/bioconductor"
 
 # update/install apt package and Japanese font (IPAex)
 RUN apt-get update \
@@ -41,10 +41,10 @@ WORKDIR /home/rstudio/rproject
 # RUN install2.r pkgname1 pkgname2
 # RUN R -e "install.packages('vector_of_package_names')"
 # example code (below):
-# RUN install2.r --error --skipinstalled\
-#     BiocManager devtools githubinstall pacman remotes ranger
-# RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"
-# RUN Rscript -e "BiocManager::install('DEP')"
+RUN install2.r --error --skipinstalled\
+    BiocManager devtools githubinstall pacman remotes ranger
+RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"
+RUN Rscript -e "BiocManager::install('DEP')"
 # RUN Rscript -e "BiocManager::install('limma')"
 
 # set global options

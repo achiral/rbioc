@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   rstudio:
-    image: docker-id/docker-image:latest
+    image: bioconductor/bioconductor_docker:latest
     build:
       context: docker
     ports:
