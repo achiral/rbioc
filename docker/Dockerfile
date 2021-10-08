@@ -40,12 +40,45 @@ WORKDIR /home/rstudio/rproject
 # Install R packages (remotes, renv, BiocManager, devtools)
 # RUN install2.r pkgname1 pkgname2
 # RUN R -e "install.packages('vector_of_package_names')"
+# RUN R -e "install.packages('tidyverse')"
 # example code (below):
-RUN install2.r --error --skipinstalled\
-    BiocManager devtools githubinstall pacman remotes ranger
-RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"
-RUN Rscript -e "BiocManager::install('DEP')"
-# RUN Rscript -e "BiocManager::install('limma')"
+# RUN Rscript -e "install.packages(c('agricolae', 'BH', 'BiocManager', 'cowplot', 'devtools', 'doSNOW', 'ggcorrplot', 'ggThemeAssist',\
+#     'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench multcomp',\
+#     'openxlsx', 'pacman', 'ranger', 'remotes', 'reshape', 'reshape2', 'randomForest', 'rJava', 'rsvg',\
+#     'rvg', 'sets', 'sgof', 'tidyverse', 'VIM', 'writexl', 'xlsx', 'XLConnect'))"
+# RUN install2.r --error --skipinstalled\
+#     agricolae BH BiocManager cowplot devtools doSNOW ggcorrplot ggThemeAssist\
+#     githubinstall imputeMissings mice minpack.lm missForest mlbench multcomp \
+#     openxlsx pacman ranger remotes reshape reshape2 randomForest rJava rsvg\
+#     rvg sets sgof tidyverse VIM writexl xlsx XLConnect
+# RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"
+# RUN Rscript -e 'BiocManager::install("airway")'
+# RUN Rscript -e 'BiocManager::install("aLFQ")'
+# RUN Rscript -e 'BiocManager::install("BaylorEdPsych")'
+# RUN Rscript -e 'BiocManager::install("biomaRt")'
+# RUN Rscript -e 'BiocManager::install("ComplexHeatmap")'
+# RUN Rscript -e 'BiocManager::install("DEP")'
+# RUN Rscript -e 'BiocManager::install("DESeq")'
+# RUN Rscript -e 'BiocManager::install("DESeq2")'
+# RUN Rscript -e 'BiocManager::install("EnhancedVolcano")'
+# RUN Rscript -e 'BiocManager::install("genefilter")'
+# RUN Rscript -e 'BiocManager::install("gmm")'
+# RUN Rscript -e 'BiocManager::install("GO.db")'
+# RUN Rscript -e 'BiocManager::install("gplots")'
+# RUN Rscript -e 'BiocManager::install("imsbInfer")'
+# RUN Rscript -e 'BiocManager::install("loadTransitonsMSExperiment")'
+# # RUN Rscript -e 'BiocManager::install("limma")'                     # DEP
+# RUN Rscript -e 'BiocManager::install("mouse4302.db")'
+# RUN Rscript -e 'BiocManager::install("MSstats")'
+# RUN Rscript -e 'BiocManager::install("mzR")'
+# RUN Rscript -e 'BiocManager::install("org.Hs.eg.db")'
+# RUN Rscript -e 'BiocManager::install("org.Mm.eg.db")'
+# RUN Rscript -e 'BiocManager::install("PANTHER.db")'
+# RUN Rscript -e 'BiocManager::install("PECA")'
+# RUN Rscript -e 'BiocManager::install("RCyjs")'
+# RUN Rscript -e 'BiocManager::install("readinteger_binary")'
+# # RUN Rscript -e 'BiocManager::install("SummarizedExperiment")'      # DEP
+# RUN Rscript -e 'BiocManager::install("SWATH2stats")'
 
 # set global options
 COPY --chown=rstudio:rstudio . /home/rstudio/

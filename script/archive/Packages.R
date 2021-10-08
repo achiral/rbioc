@@ -19,6 +19,7 @@ BiocManager::install("genefilter")                  # heatmap
 BiocManager::install("gplots")                      # heatmap
 BiocManager::install("imsbInfer")                   # NA
 BiocManager::install("loadTransitonsMSExperiment")  # NA
+BiocManager::install("limma")                       # DEP
 # BiocManager::install("mouse4302.db")
 BiocManager::install("MSstats")
 BiocManager::install("mzR")
@@ -74,17 +75,20 @@ install.packages("snow")                            # MSstat
 install.packages("stringr")                         # MSstat
 install.packages("survival")                        # MSstat
 # install.packages("tablaxlsx")                     # NA, xlsx table output
-install.packages("tidyr")                           # MSstat
+# install.packages("tidyr")                         # MSstat
 # install.packages("tidyverse")                     # done, 
 install.packages("VIM")
-# install.packages("writexl")                       # done, xlsx output
+# install.packages("writexl")                       # done, writexl output
 # install.packages("xlsx")                          # done, xlsx output
 # install.packages("xlsx2")                         # NA, xlsx output
 install.packages("XLConnect")                       # xlsx in/output
 
 #############################################################
 # Load BioConductor Packages
+library(airway)
+library(aLFQ)
 # library(BaylorEdPsych)                            # NA
+# library(BiocManager)                              # done
 # library(biomaRt)
 library(ComplexHeatmap)                             # heatmap
 # library(DEP)                                      # NA, proteomics
@@ -98,7 +102,7 @@ library(gplots)                                     # heatmap
 library(imsbInfer)                                  # NA
 library(loadTransitonsMSExperiment)                 # NA
 # library(mouse4302.db)
-library(MSstats)                                    # NA?
+# library(MSstats)                                  # NA
 library(mzR)
 # library(org.Hs.eg.db)
 # library(org.Mm.eg.db)
@@ -112,55 +116,51 @@ library(SWATH2stats)
 
 #############################################################
 # Load BaseR Packages
-library(airway)
-library(aLFQ)
 library(agricolae)                                  
-# library(BaylorEdPsych)                            # NA
 library(BH)                                         # FDR
-# library(BiocManager)                              # done
-library(RColorBrewer)                               # color
 library(cowplot)
-library(data.table)                                 # MSstat
+# library(data.table)                               # DEP, MSstats
 library(devtools)
-library(doSNOW)                                     # MSstat
-# library(dplyr)                                    # tidyverse, MSstat
-library(foreach)                                    # MSstat
+library(doSNOW)                                     # MSstats
+# library(dplyr)                                    # tidyverse, MSstats
+# library(foreach)                                  # DEP, MSstats
 library(ggcorrplot)                                 
-library(ggrepel)                                    # MSstat
-library(ggplot2)                                    # MSstat
+library(ggrepel)                                    # MSstats
+library(ggplot2)                                    # MSstats
 library(ggThemeAssist)
-library(gplots)                                     # MSstat, heatmap
-library(gridExtra)                                  # svg
+# library(gplots)                                   # MSstats, heatmap
+# library(gridExtra)                                # svg, MSstats
 library(imputeMissings)
-# library(lattice)                                  # done, limma
-library(lme4)                                       # MSstat
-library(magrittr)
-library(mgcv)                                       # done, limma
+# library(lattice)                                  # done, DEP, limma
+# library(lme4)                                     # MSstats
+# library(magrittr)                                 # tidyverse?
+# library(mgcv)                                     # done, DEP?, limma
 library(mice)
-library(minpack.lm)                                 # MSstat
+library(minpack.lm)                                 # MSstats
 library(missForest)
 library(mlbench)
 # library(multcomp)                                 # done, multiple comparison
 # library(openxlsx)                                 # done, exlx output(write.xlsx)
 # library(palmerpenguins)                           # demo
-# library(readxl)                                   # done, exlx input(read_excel)
-library(reshape)                                    # MSstat
-library(reshape2)                                   # MSstat
+# library(RColorBrewer)                             # color, tidyverse?
+# library(readxl)                                   # base?, exlx input(read_excel)
+library(reshape)                                    # MSstats
+library(reshape2)                                   # MSstats
+library(randomForest)                               # MSstats
 # library(rJava)                                    # done
-library(randomForest)                               # MSstat
 library(rsvg)                                       # svg
 library(rvg)                                        # svg（https://www.karada-good.net/analyticsr/r-382）
-# library(S4Vectors)                                # done, DEP/SummarizedExperiment
-# library(sandwich)                                 # done, gmm
-library(scales)                                     # muted()
+# library(S4Vectors)                                # DEP/SummarizedExperiment
+# library(sandwich)                                 # DEP?, gmm?
+# library(scales)                                   # muted(), tidyverse?
 library(sets)                                       # set operation
 library(sgof)                                       # bh(), Multiple Hypothesis Testing
-library(snow)                                       # MSstat
-library(stringr)                                    # MSstat
-library(survival)                                   # MSstat
+# library(snow)                                     # MSstats
+# library(stringr)                                  # MSstats
+# library(survival)                                 # MSstats
 # library(tablaxlsx)                                # NA, xlsx table output
-library(tidyr)                                      # MSstat
-library(tidyverse)                                  # ggplot2, dplyr
+# library(tidyr)                                    # MSstats
+# library(tidyverse)                                # ggplot2, dplyr
 library(VIM)
 library(writexl)                                    # xlsx output
 library(xlsx)                                       # xlsx output
