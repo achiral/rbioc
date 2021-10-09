@@ -31,7 +31,8 @@
 `docker-compose stop`
 
 # restart docker container
-`docker-compose up --build -d`
+`docker-compose start` without update
+`docker-compose up --build -d` with update
 
 # copy file from host to container
 `docker cp <host directory> <container name>:<container ditectory>`
