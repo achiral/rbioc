@@ -37,10 +37,10 @@ ENV R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
 # change directory
 WORKDIR /home/rstudio/rproject
 
-# Install R packages (remotes, renv, BiocManager, devtools)
+# Install R packages
 # RUN install2.r pkgname1 pkgname2
-# RUN R -e "install.packages('vector_of_package_names')"
-# RUN R -e "install.packages('tidyverse')"
+# RUN Rscript -e "install.packages('vector_of_package_names')"
+# RUN Rscript -e 'BiocManager::install("vector_of_package_names")'
 # example code (below):
 # RUN Rscript -e "install.packages(c('agricolae', 'BH', 'BiocManager', 'cowplot', 'devtools', 'doSNOW', 'ggcorrplot', 'ggThemeAssist',\
 #     'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench multcomp',\
