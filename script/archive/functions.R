@@ -7,3 +7,10 @@ detach_all <- function() {
   pkg.list <- setdiff(pkg.list, basic.pkg)
   lapply(pkg.list, detach, character.only = TRUE)
 }
+
+# dir.choose <- function() {
+#   system("osascript -e 'tell app \"RStudio\" to POSIX path of (choose folder with prompt \"Choose Folder:\")' > /tmp/R_folder",
+#          intern = FALSE, ignore.stderr = TRUE)
+#   p <- system("cat /tmp/R_folder && rm -f /tmp/R_folder", intern = TRUE)
+#   return(ifelse(length(p), p, NA))
+# }

@@ -9,7 +9,7 @@
 
 # edit template
 ## edit Dockerfile
-- change Docker image (ex. `FROM docker-ID/docker-image:latest`)  
+- change Docker image (ex. `bioconductor/bioconductor_docker` => `FROM docker-ID/docker-image:latest`)  
 - install R packages (see below exampe codes)  
 `RUN install2.r pkgname1 pkgname2`  
 `RUN Rscript -e "install.packages('vector_of_package_names')"`  

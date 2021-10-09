@@ -43,7 +43,7 @@ WORKDIR /home/rstudio/rproject
 # RUN Rscript -e 'BiocManager::install("vector_of_package_names")'
 # example code (below):
 # RUN Rscript -e "install.packages(c('agricolae', 'BH', 'BiocManager', 'cowplot', 'devtools', 'doSNOW', 'ggcorrplot', 'ggThemeAssist',\
-#     'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench multcomp',\
+#     'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench', 'multcomp',\
 #     'openxlsx', 'pacman', 'ranger', 'remotes', 'reshape', 'reshape2', 'randomForest', 'rJava', 'rsvg',\
 #     'rvg', 'sets', 'sgof', 'tidyverse', 'VIM', 'writexl', 'xlsx', 'XLConnect'))"
 # RUN install2.r --error --skipinstalled\
