@@ -1,6 +1,7 @@
 # Docker base image
 FROM bioconductor/bioconductor_docker
 # FROM bioconductor/bioconductor_docker:RELEASE_3_13
+# FROM achiral/rbioc
 
 # information
 # LABEL version="2021.10"
