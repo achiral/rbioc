@@ -12,6 +12,12 @@ ENV LANG ja_JP.UTF-8\
   && LC_ALL ja_JP.UTF-8\
   && R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
   
+# change directory
+WORKDIR /home/rstudio/rproject
+
+# set global options
+COPY --chown=rstudio:rstudio . /home/rstudio/
+
 # update/install apt package and Japanese font (IPAex)
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -27,23 +33,23 @@ RUN apt-get update \
     && locale-gen ja_JP.UTF-8 \
     && /usr/sbin/update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"\
   && /bin/bash -c "source /etc/default/locale"\
-  && ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime\
+  && ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # Install R packages
 # RUN install2.r pkgname1 pkgname2
 # RUN Rscript -e "install.packages('vector_of_package_names')"
 # RUN Rscript -e 'BiocManager::install("vector_of_package_names")'
 # example code (below):
-  && Rscript -e "install.packages(c('agricolae', 'BH', 'BiocManager', 'cowplot', 'devtools', 'doSNOW', 'ggcorrplot', 'ggThemeAssist',\
-    'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench', 'multcomp',\
-    'openxlsx', 'pacman', 'ranger', 'remotes', 'reshape', 'reshape2', 'randomForest', 'rJava', 'rsvg',\
-    'rvg', 'sets', 'sgof', 'tidyverse', 'VIM', 'writexl', 'xlsx', 'XLConnect'))"\
+RUN Rscript -e "install.packages(c('agricolae', 'BH', 'BiocManager', 'cowplot', 'devtools', 'doSNOW', 'ggcorrplot',\
+  'ggThemeAssist', 'githubinstall', 'imputeMissings', 'mice', 'minpack.lm', 'missForest', 'mlbench', 'multcomp',\
+  'openxlsx', 'pacman', 'ranger', 'remotes', 'reshape', 'reshape2', 'randomForest', 'rJava', 'rsvg',\
+  'rvg', 'sets', 'sgof', 'tidyverse', 'VIM', 'writexl', 'xlsx', 'XLConnect'))"
 # && install2.r --error --skipinstalled\
 #     agricolae BH BiocManager cowplot devtools doSNOW ggcorrplot ggThemeAssist\
 #     githubinstall imputeMissings mice minpack.lm missForest mlbench multcomp \
 #     openxlsx pacman ranger remotes reshape reshape2 randomForest rJava rsvg\
 #     rvg sets sgof tidyverse VIM writexl xlsx XLConnect
-  && Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"\
+RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE, Ncpus=2)"\
   && Rscript -e 'BiocManager::install("airway")'\
   && Rscript -e 'BiocManager::install("aLFQ")'\
   && Rscript -e 'BiocManager::install("BaylorEdPsych")'\
@@ -57,9 +63,9 @@ RUN apt-get update \
   && Rscript -e 'BiocManager::install("gmm")'\
   && Rscript -e 'BiocManager::install("GO.db")'\
   && Rscript -e 'BiocManager::install("gplots")'\
+# && Rscript -e 'BiocManager::install("limma")'\                     # DEP
   && Rscript -e 'BiocManager::install("imsbInfer")'\
   && Rscript -e 'BiocManager::install("loadTransitonsMSExperiment")'\
-  # && Rscript -e 'BiocManager::install("limma")'\                     # DEP
   && Rscript -e 'BiocManager::install("mouse4302.db")'\
   && Rscript -e 'BiocManager::install("MSstats")'\
   && Rscript -e 'BiocManager::install("mzR")'\
@@ -71,9 +77,3 @@ RUN apt-get update \
   && Rscript -e 'BiocManager::install("readinteger_binary")'\
 # && Rscript -e 'BiocManager::install("SummarizedExperiment")'\      # DEP
   && Rscript -e 'BiocManager::install("SWATH2stats")'
-
-# change directory
-WORKDIR /home/rstudio/rproject
-
-# set global options
-COPY --chown=rstudio:rstudio . /home/rstudio/
